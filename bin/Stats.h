@@ -1,9 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-struct stats{
+struct stats{               //Basic structure of statuses
     char name[50];
-    int actionIndex;
-    double hp,hyg,mon,hap; //hp = health, hyg = hygiene, mon = money, hap = happiness
+    int actionIndex,
+    hp,
+    hyg,
+    hap,
+    mon,
+    soc; //hp = health, hyg = hygiene, mon = money, hap = happiness, soc = social
 };
+
+void PlayerDo(struct stats *player, struct stats *b){
+    player->hp += b->hp;
+    player->hap += b->hap;
+    player->hyg += b->hyg;
+    player->mon += b->mon;
+    player->soc += b->soc;
+}
+
+/*To be added in the future :
+    -Race/Class/Type
+    -Stats multiplier
+    -Time
+*/
