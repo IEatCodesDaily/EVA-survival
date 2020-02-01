@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "stats.h"
 /* Remember, the struct order is:
-    name
+    name >> for action will be filled with the action dialogue
     actionIndex
     health
     hygiene
@@ -10,6 +10,12 @@
     money
     social
 */
+char actlib[3][50] = {
+    "player",
+    "sleep",
+    "eat",
+};
+
 struct stats player = {
     "player",
     0,
@@ -17,7 +23,7 @@ struct stats player = {
     100,
     100,
     1000,
-    100,
+    100
 };
 
 struct stats sleep = {
@@ -29,3 +35,14 @@ struct stats sleep = {
     5,      //Money
     -10     //Social
 };
+
+struct stats eat = {
+    "eat",
+    2,
+    15,
+    5,
+    10,
+    -100,
+    0
+};
+
