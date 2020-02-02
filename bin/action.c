@@ -9,11 +9,13 @@
     hygiene
     social
     money
+    time
 */
-char actlib[3][50] = {
+char actlib[10][50] = {
     "player",
     "sleep",
     "eat",
+    "wash"
 };
 
 struct stats player = {
@@ -23,7 +25,8 @@ struct stats player = {
     100,
     100,
     100,
-    10
+    10,
+    0
 };
 
 struct stats sleep = {
@@ -33,7 +36,8 @@ struct stats sleep = {
     5,      //Happiness
     -5,     //Hygiene
     -10,    //Social
-    0       //Money
+    0,      //Money
+    8       //Time
 };
 
 struct stats eat = {
@@ -43,7 +47,8 @@ struct stats eat = {
     5,
     -10,
     10,
-    -5
+    -5,
+    2
 };
 
 struct stats wash = {
@@ -53,5 +58,6 @@ struct stats wash = {
     5,
     19,
     0,
-    0
+    0,
+    3
 };

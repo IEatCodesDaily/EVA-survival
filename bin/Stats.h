@@ -8,10 +8,11 @@ struct stats{               //Basic structure of statuses
     hap,
     hyg,
     soc,
-    mon; //hp = health, hyg = hygiene, mon = money, hap = happiness, soc = social
-    char dialogue[100];
+    mon,
+    time; //hp = health, hyg = hygiene, mon = money, hap = happiness, soc = social, time = time taken
 };
 
+int day = 0;
 
 /*To be added in the future :
     -Race/Class/Type

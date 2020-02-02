@@ -8,6 +8,7 @@ int main(){
 
     newdisp();
     nameinput();
+    system("pause");
     play();
             
     return 0;
@@ -18,6 +19,7 @@ void play(){
     while(1){
         newdisp();
         printstats(&player);
+        actionlist();
         printf("\nChoose the action you want to do: ");
         scanf("%d", &action);
         if (action == 1){       
@@ -26,7 +28,10 @@ void play(){
             PlayerDo(&player, &eat);
         }else if (action == 3){
             PlayerDo(&player, &wash);
+        }else{
+            break;
         }
+        timecheck();
     }
 
     system("pause");                

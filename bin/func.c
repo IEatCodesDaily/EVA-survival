@@ -6,7 +6,7 @@
 void nameinput(){
     printf("\nPlease enter your name: ");
     scanf ("%[^\n]%*c", player.name);
-    printf("You are %s, a robot living in EVA. A world known to none. In this world, you have 5 stats which are Health, Money, Happiness, Hygiene, and Social.\nWhen your health reaches 0, you will die. Each stats will affect your gameplay.", player.name);
+    printf("You are %s, a robot living in EVA. A world known to none.\n\nIn this world, you have 5 stats which are Health, Money, Happiness, Hygiene, and Social.\nWhen your health reaches 0, you will die. Each stats will affect your gameplay.\n\n", player.name);
 }
 void PlayerDo(struct stats *player, struct stats *b){
     player->hp += b->hp;
@@ -14,6 +14,7 @@ void PlayerDo(struct stats *player, struct stats *b){
     player->hap += b->hap;
     player->mon += b->mon;
     player->soc += b->soc;
+    player->time += b->time;
 }
 
 void hpcheck(){
@@ -48,6 +49,7 @@ void printstats(struct stats *a){
     printf("\nHygiene   : %.2f", a->hyg);
     printf("\nSocial    : %.2f", a->soc);
     printf("\nMoney     : %.2f", a->mon);
+    printf("\nTime      : %.2f", a->time);
 
 }
 
@@ -57,4 +59,15 @@ void newdisp(){
     printf("\n            EVA'S Life Challenge               ");
     printf("\n        Survive for a week and you win!        ");
     printf("\n===============================================");
+
+    printf("\nDay %d Hour %.f", day, player.time);
+}
+
+void timecheck(){
+    struct stats *playerptr = &player;
+    if (player.time >= 24){
+        playerptr->hp += -10;
+        playerptr->time += -24;
+        day += 1;
+    }
 }
