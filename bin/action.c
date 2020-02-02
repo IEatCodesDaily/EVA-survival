@@ -11,13 +11,25 @@
     money
     time
 */
-char actlib[10][50] = {
+char actlib[25][50] = {
     "Action List",
     "sleep",
     "eat",
     "wash",
-    "work"
+    "work -- Volunteer",
+    "     -- Cashier",
+    "     -- Factory",
+    "     -- Volunteer",
+    "play -- Spinner",
+    "     -- Rubik Cube",
+    "     -- RC Car",
+    "chat",
+    "buy  -- Spinner",
+    "     -- Rubik Cube",
+    "     -- RC Car"
 };
+
+
 
 struct stats player = {
     "Player",   //name
@@ -63,7 +75,76 @@ struct stats wash = {
     3
 };
 
-
+struct stats spin = {
+    "Spinner",
+    4,
+    0,
+    5,
+    0,
+    0,
+    0,
+    1
+};
+struct stats rubik = {
+    "Rubik Cube",
+    5,
+    0,
+    10,
+    0,
+    0,
+    0,
+    2
+};
+struct stats car = {
+    "Spinner",
+    6,
+    0,
+    20,
+    0,
+    0,
+    0,
+    4
+};
+struct stats chat = {
+    "Chat",   //name
+    7,          //actionIndex
+    0,        //Health
+    0,        //Happiness
+    0,        //Hygiene
+    10,        //Social
+    0,         //Money
+    1           //Time
+};
+struct stats buySpin = {
+    "Buy Spinner",   //name
+    0,          //actionIndex
+    0,        //Health
+    0,        //Happiness
+    0,        //Hygiene
+    0,        //Social
+    -25,         //Money
+    0           //Time
+};
+struct stats buyRubik = {
+    "Buy Rubik Cube",   //name
+    0,          //actionIndex
+    0,        //Health
+    0,        //Happiness
+    0,        //Hygiene
+    0,        //Social
+    -75,         //Money
+    0           //Time
+};
+struct stats buyCar = {
+    "Buy RC Car",   //name
+    0,          //actionIndex
+    0,        //Health
+    0,        //Happiness
+    0,        //Hygiene
+    0,        //Social
+    -140,         //Money
+    0           //Time
+};
 //Work list
 
 char worklib[10][50] = {
