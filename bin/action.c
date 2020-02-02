@@ -69,8 +69,8 @@ struct stats wash = {
 char worklib[10][50] = {
     "Job list",
     "Volunteer work",
-    "Work as a cashier"
-    "Work at a factory"
+    "Work as a cashier",
+    "Work at a factory",
     "Clean the street"
 };
 

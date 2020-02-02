@@ -3,7 +3,7 @@
 
 
 void actionlist(){
-    printf("\nWhat should i do?");
+    printf("\n\nWhat should i do?");
     int i = 1;
     while (actlib[i][0] != '\0'){
         printf("\n%d. %s", i, actlib[i]);
@@ -13,14 +13,18 @@ void actionlist(){
 }
 
 void joblist(){
-    printf("\n What job should i take?");
+    printf("\n\nWhat job should i take?");
     int i = 1;
     while (worklib[i][0] != '\0'){
-        printf("\n%d. %s\t\t\t\tSalary : $%.f\tDuration : %.f hour", i, worklib[i], salary[i], worktime[i]);
+        printf("\n%d. %s\t\t\t\tSalary : $%d\tDuration : %d hour(s)", i, worklib[i], salary[i], worktime[i]);
         i++;
     }
 }
 
-void sleepdial(){
-    
+void actdial(struct stats *act){
+
+}
+
+void workdial(struct work *work){
+
 }

@@ -1,11 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "action.c"
 #include "dialogue.h"
 
+void dowork(),newdisp(),newdisp1(),newdisp2();
+
 void nameinput(){
     printf("\nPlease enter your name:");
-    gets(player.name);
+    scanf("%s",player.name);
     printf("\nYou are %s, a robot living in EVA. A world known to none.\n\nIn this world, you have 5 stats which are Health, Money, Happiness, Hygiene, and Social.\nWhen your health reaches 0, you will die. Each stats will affect your gameplay.\n\n", player.name);
 }
 
@@ -27,18 +30,74 @@ void PlayerDo(struct stats *player, struct stats *b){
     player->mon += b->mon;
     player->soc += b->soc;
     player->time += b->time;
+    actdial(b);
 }
 
-void action(int act){
-    if (act == 1){
+void PlayerWork(struct stats *player, struct work *b){
+    player->hp += b->hp;
+    player->hyg += b->hyg;
+    player->hap += b->hap;
+    player->mon += b->mon;
+    player->soc += b->soc;
+    player->time += b->time;
+    workdial(b);
+}
+
+void action(char act[2]){
+    
+}
+
+void doact(){
+    char act[2];
+    newdisp2();
+    actionlist();
+    printf("\n\nChoose the action you want to do: ");
+        while(1){
+        scanf("%s", &act);
+        if (strcmp(act, "1") == 0){
             PlayerDo(&player, &sleep);
-        }else if (act == 2){
+            break;
+        }else if (strcmp(act, "2") == 0){
             PlayerDo(&player, &eat);
-        }else if (act == 3){
+            break;
+        }else if (strcmp(act, "3") == 0){
             PlayerDo(&player, &wash);
+            break;
+        }else if (strcmp(act, "4") == 0){
+            dowork();
+            break;
+        }else{
+            printf("Please input the number of the action.\r");
+        }
+    }
+
+}
+
+
+
+void dowork(){
+    char job[2];
+    newdisp2();
+    joblist();
+    printf("\n\nChoose the job you want to take: ");
+    while(1){
+        scanf("%s", &job);
+        if (strcmp(job, "1") == 0){
+            PlayerWork(&player, &volunteer);
+            break;
+        }else if (strcmp(job, "2") == 0){
+            PlayerWork(&player, &cashier);
+            break;
+        }else if (strcmp(job, "3") == 0){
+            PlayerWork(&player, &factory);
+            break;
+        }else if (strcmp(job, "4") == 0){
+            PlayerWork(&player, &streetclean);
+            break;
         }else{
             printf("Please input the number of the action.");
         }
+    }
 }
 
 void hpcheck(){
@@ -79,17 +138,21 @@ void printstats(struct stats *a){
 }
 #define TITLE "===============================================\n            EVA'S Life Challenge               \n        Survive for a week and you win!        \n==============================================="
 
-void newdisp(){
+void newdisp(){ //clear the console and print title
     system("cls");
     printf(TITLE);
 
 }
 
-void newdisp1(){
+void newdisp1(){ //newdisp() with day and hour
     newdisp();
     printf("\nDay %d Hour %.f", day, player.time);
 }
 
+void newdisp2(){
+    newdisp1();
+    printstats(&player);
+}
 void timecheck(){
     struct stats *playerptr = &player;
     if (player.time >= 24){

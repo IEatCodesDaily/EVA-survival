@@ -21,16 +21,11 @@ int main(){
 }
 
 void play(){
-    newdisp1();
-    printstats(&player);
+    newdisp2();//title, time, player stats.
     while(player.hp > 0){
-        int act = 0;
-        actionlist();
-        printf("\nChoose the action you want to do: ");
-        scanf("%d", &act);
-        action(act);
-        newdisp1();
         timecheck();
-        printstats(&player); 
+        doact();
+        newdisp2();
+        timecheck();
     }       
-}
+} 
