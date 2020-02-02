@@ -5,10 +5,10 @@
     name >> for action will be filled with the action dialogue
     actionIndex
     health
-    hygiene
     happiness
-    money
+    hygiene
     social
+    money
 */
 char actlib[3][50] = {
     "player",
@@ -17,32 +17,41 @@ char actlib[3][50] = {
 };
 
 struct stats player = {
-    "player",
+    "Player",
     0,
     100,
     100,
     100,
-    1000,
-    100
+    100,
+    10
 };
 
 struct stats sleep = {
-    "sleep",//name
+    "Sleep",//name
     1,      //actionIndex
     10,     //Health
-    0,      //Hygiene
-    0,      //Happiness
-    5,      //Money
-    -10     //Social
+    5,      //Happiness
+    -5,     //Hygiene
+    -10,    //Social
+    0       //Money
 };
 
 struct stats eat = {
-    "eat",
+    "Eat",
     2,
     15,
     5,
+    -10,
     10,
-    -100,
-    0
+    -5
 };
 
+struct stats wash = {
+    "Wash",
+    3,
+    0,
+    5,
+    19,
+    0,
+    0
+};

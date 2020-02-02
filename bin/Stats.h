@@ -3,12 +3,12 @@
 
 struct stats{               //Basic structure of statuses
     char name[50];
-    int actionIndex,
-    hp,
-    hyg,
+    int actionIndex;
+    float hp,
     hap,
-    mon,
-    soc; //hp = health, hyg = hygiene, mon = money, hap = happiness, soc = social
+    hyg,
+    soc,
+    mon; //hp = health, hyg = hygiene, mon = money, hap = happiness, soc = social
     char dialogue[100];
 };
 

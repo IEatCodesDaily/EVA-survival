@@ -6,26 +6,28 @@
 void play();
 int main(){
 
-    printf("===============================================");
-    printf("\n            EVA'S Life Challenge               ");
-    printf("\n        Survive for a week and you win!        ");
-    printf("\n===============================================");
-    
+    newdisp();
+    nameinput();
     play();
-    
+            
     return 0;
 }
 
 void play(){
     int action = 0;
     while(1){
+        newdisp();
+        printstats(&player);
         printf("\nChoose the action you want to do: ");
         scanf("%d", &action);
-        if (action == 1){
+        if (action == 1){       
             PlayerDo(&player, &sleep);
+        }else if (action == 2){
+            PlayerDo(&player, &eat);
+        }else if (action == 3){
+            PlayerDo(&player, &wash);
         }
     }
 
-    printf("\n\nPlayer's stats\n\nHP: %d\nHappiness: %d", player.hp, player.hap);
-    system("pause");
+    system("pause");                
 }

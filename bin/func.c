@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "action.c"
+#include "dialogue.h"
 
 void nameinput(){
     printf("\nPlease enter your name: ");
@@ -9,8 +10,8 @@ void nameinput(){
 }
 void PlayerDo(struct stats *player, struct stats *b){
     player->hp += b->hp;
-    player->hap += b->hap;
     player->hyg += b->hyg;
+    player->hap += b->hap;
     player->mon += b->mon;
     player->soc += b->soc;
 }
@@ -18,8 +19,42 @@ void PlayerDo(struct stats *player, struct stats *b){
 void hpcheck(){
     if (player.hp == 0){
         printf("Your health reached 0, you are dead.");
-        exit(0);
     }
 }
 
-void actioncheck();
+void printstat(struct stats *a, char tag[15]){
+    if(tag == "actionIndex"){
+        printf("actionIndex: %.2f",a->actionIndex);
+    }else if (tag == "name"){
+            printf("Name: %.2f",a->name);
+    }else if (tag == "health"){
+            printf("Health: %.2f",a->hp);
+    }else if (tag == "hap"){
+            printf("Happiness: %.2f",a->hap);
+    }else if (tag == "hyg"){
+            printf("Hygiene: %.2f",a->hyg);
+    }else if (tag == "mon"){
+            printf("Money: %.2f",a->mon);
+    }else if (tag == "soc"){
+            printf("Social: %.2f",a->soc);
+    }
+}
+
+void printstats(struct stats *a){
+
+    printf("\n\n%s's Stats", a->name);
+    printf("\nHealth    : %.2f", a->hp);
+    printf("\nHappiness : %.2f", a->hap);
+    printf("\nHygiene   : %.2f", a->hyg);
+    printf("\nSocial    : %.2f", a->soc);
+    printf("\nMoney     : %.2f", a->mon);
+
+}
+
+void newdisp(){
+    system("cls");
+    printf("===============================================");
+    printf("\n            EVA'S Life Challenge               ");
+    printf("\n        Survive for a week and you win!        ");
+    printf("\n===============================================");
+}
