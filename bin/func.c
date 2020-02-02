@@ -1,8 +1,9 @@
+#define TITLE "===============================================\n            EVA'S Life Challenge               \n        Survive for a week and you win!        \n==============================================="
 #include <stdlib.h>
 #include <stdio.h>
 #include "action.c"
 #include "dialogue.h"
-
+void printstats(struct stats *a);
 void nameinput(){
     printf("\nPlease enter your name:");
     gets(player.name);
@@ -106,6 +107,15 @@ void PlayerDo(struct stats *player, struct stats *b){
 
 }
 
+void playerWork(struct stats *player, struct work *b){
+    player->hp += b->hp;
+    player->hyg += b->hyg;
+    player->hap += b->hap;
+    player->mon += b->mon;
+    player->soc += b->soc;
+    player->time += b->time;
+}
+
 void action(int act){
     if (act == 1){
             PlayerDo(&player, &sleep);
@@ -113,7 +123,41 @@ void action(int act){
             PlayerDo(&player, &eat);
         }else if (act == 3){
             PlayerDo(&player, &wash);
-        }else{
+        }else if (act == 4 ){
+            playerWork(&player,&volunteer);
+        }else if (act == 5){
+            playerWork(&player,&cashier);
+
+        }else if (act == 6){
+            playerWork(&player,&factory);
+        }else if (act == 7){
+            playerWork(&player,&streetclean);
+        }else if (act == 8){
+            PlayerDo(&player,&spin);
+        }else if (act == 9){
+			PlayerDo(&player,&rubik);
+        }else if (act == 10){
+			PlayerDo(&player,&car);
+        }else if (act == 11){
+            PlayerDo(&player,&chat);
+        }else if (act == 12){
+            if(money>=25){
+            PlayerDo(&player,&buySpin);
+            spinner+=1;
+            }
+        }else if (act == 13){
+            if(money>=75){
+            PlayerDo(&player,&buyRubik);
+            rubikCube+=1;
+            }
+        }else if (act == 14){
+            if(money>=140){
+            PlayerDo(&player,&buyCar);
+            rcCar+=1;
+            }
+        }
+
+        else{
             printf("Please input the number of the action.");
         }
 }
@@ -143,7 +187,7 @@ void printstat(struct stats *a, char tag[15]){
 }
 
 void printstats(struct stats *a){
-
+    money=a->mon;
     printf("\n\n%s's Stats", a->name);
     printf("\nHealth    : %.2f", a->hp);
     printf("\nHappiness : %.2f", a->hap);
@@ -154,7 +198,6 @@ void printstats(struct stats *a){
         printf("\nTime      : %.2f", a->time);
     }
 }
-#define TITLE "===============================================\n            EVA'S Life Challenge               \n        Survive for a week and you win!        \n==============================================="
 
 void newdisp(){
     system("cls");
