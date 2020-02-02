@@ -120,7 +120,9 @@ void action(int act){
     if (act == 1){
             PlayerDo(&player, &sleep);
         }else if (act == 2){
+            if (money>=5){
             PlayerDo(&player, &eat);
+            }
         }else if (act == 3){
             PlayerDo(&player, &wash);
         }else if (act == 4 ){
